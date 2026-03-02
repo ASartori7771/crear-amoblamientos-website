@@ -1,0 +1,69 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section id="hero-inicio">
+    <div class="hero-overlay"></div>
+    <h2 id="titulo-bienvenida">Bienvenido a Crear Amoblamientos</h2>
+    <p id="subtitulo-bienvenida">
+        Diseños únicos, calidad premium y confort garantizado.
+    </p>
+
+
+
+
+</section>
+
+
+
+<section id="carousel-muebles">
+
+    <h2 class="titulo-seccion">Productos Destacados</h2>
+
+
+    <div class="carousel"
+     data-flickity='{
+        "wrapAround": true,
+        "autoPlay": 2500,
+        "cellAlign": "center",
+        "contain": true
+     }'>
+
+        <div class="carousel-cell">
+            <div class="cell-inner">
+            <img src="{% static 'images/mesada-bano3.jpg' %}">
+            </div>
+        </div>
+
+        <div class="carousel-cell">
+            <div class="cell-inner">
+            <img src="{% static 'images/botiquin1.webp' %}">
+            </div>
+        </div>
+
+        <div class="carousel-cell">
+            <div class="cell-inner">
+            <img src="{% static 'images/rack-tv3.jpg' %}">
+            </div>
+        </div>
+
+        <div class="carousel-cell">
+            <div class="cell-inner">
+            <img src="{% static 'images/mesada-cocina1.jpg' %}">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="botones">
+        <a href="{% url 'productos' %}" class="btn-productos">Ver mas Productos</a>
+    </div>
+
+</section>
+
+{% endblock %}
+
+

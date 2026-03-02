@@ -1,0 +1,80 @@
+
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section id="barra-productos">
+
+    <div class="contenedor-barra">
+
+        <div class="texto-barra">
+            <h2 class="titulo-productos">Productos</h2>
+
+            <p class="subtitulo-productos">
+                Descubrí nuestros muebles personalizados diseñados para tu espacio.
+            </p>
+
+            <!-- FILA FLEX PARA ALINEAR -->
+            <div class="fila-categoria">
+
+                <h4 class="titulo-categoria">
+                    {% if categoria %}
+                        {{ categoria.name }}
+                    {% else %}
+                        Mostrando todos los productos
+                    {% endif %}
+                </h4>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Categorías
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/productos/">Mostrar todos</a></li>
+
+                        {% for categoria in categorias %}
+                            <li>
+                                <a class="dropdown-item" href="?categoria={{ categoria.id }}">
+                                    {{ categoria.name }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+            <!-- FIN FILA FLEX -->
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="container mt-4">
+    <div class="row">
+        {% for producto in productos %}
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+
+                    {% if producto.image %}
+                        <img src="{{ producto.image.url }}" class="card-img-top" alt="{{ producto.name }}">
+                    {% endif %}
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ producto.name }}</h5>
+                        <p class="card-text">{{ producto.description }}</p>
+                        <p class="fw-bold">$ {{ producto.price }}</p>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+
+{% endblock %}

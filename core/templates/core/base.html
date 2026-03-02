@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+
+    <meta charset="UTF-8">
+    <title>Crear Amoblamientos</title>
+    <link rel='icon' type='image/png' href="{% static 'images/logo.png' %}">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+</head>
+
+<body id="body-principal">
+    
+    <header id='header-principal'>
+
+        <nav id='nav-principal'>
+            <img src="{% static 'images/icono-nav3.png' %}" alt="Logo Crear Amoblamientos" id="logo-img">
+
+
+        <ul class="nav justify-content-end" id='menu-nav'>
+                
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'informacion' %}">Informacion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'productos' %}">Productos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'contacto' %}" >Contacto</a>
+            </li>
+
+
+        </nav>
+    </header>
+
+    <div id='contenido-principal'>
+        <div id='fondo-principal'>
+
+        {% block content %}
+        {% endblock %}
+        </div>
+
+    </div>
+
+    <footer id='footer-principal'>
+        <p id='texto-footer'>© 2026 Crear Amoblamientos</p>
+    </footer> 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+       
+    <script>
+    emailjs.init("-pLY-3t3DcwFdV-29");
+    </script>
+
+    <script>
+    document.getElementById("formulario-contacto")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        emailjs.sendForm(
+            "service_7j3vuwm",
+            "template_7o51f4o",
+            this
+        )
+        .then(() => {
+            alert("Mensaje enviado correctamente!");
+            this.reset();
+        }, (error) => {
+            alert("Error al enviar. Intenta nuevamente.");
+            console.log(error);
+        });
+
+    });
+    </script>
+
+</body>
+
+</html>
