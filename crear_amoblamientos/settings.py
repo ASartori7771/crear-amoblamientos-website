@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG") == "True"
 
-ALLOWED_HOSTS = ["crear-amoblamientos.onrender.com"]
+ALLOWED_HOSTS = ["https://crear-amoblamientos-website.onrender.com/"]
 
 
 # Application definition
