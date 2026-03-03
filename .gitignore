@@ -47,3 +47,6 @@ Thumbs.db
 # DATABASE BACKUPS (IMPORTANT)
 # =========================
 *.sql
+
+db saves/
+*.csv
