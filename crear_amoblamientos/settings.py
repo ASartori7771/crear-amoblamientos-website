@@ -163,13 +163,17 @@ CLOUDINARY_STORAGE = {
     "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
 }
 
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 
 STATICFILES_DIRS = []
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-print("Cloud name:", os.getenv("CLOUDINARY_CLOUD_NAME"))
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
