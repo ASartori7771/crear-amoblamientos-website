@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG") == "True"
 
-ALLOWED_HOSTS = ["https://crear-amoblamientos-website.onrender.com",
+ALLOWED_HOSTS = ["crear-amoblamientos-website.onrender.com",
                 ".onrender.com",
                 "127.0.0.1", "localhost",]
 
@@ -151,7 +151,7 @@ if not DEBUG:
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 
 # MEDIA_URL = '/media/'
@@ -171,3 +171,5 @@ STATICFILES_DIRS = []
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+print("Cloud name:", os.getenv("CLOUDINARY_CLOUD_NAME"))
