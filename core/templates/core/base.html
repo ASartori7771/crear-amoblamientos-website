@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Crear Amoblamientos</title>
     <link rel='icon' type='image/png' href="{% static 'images/logo.png' %}">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -16,7 +17,7 @@
     
     <header id='header-principal'>
 
-        <nav id='nav-principal'>
+        <nav id='nav-principal' class="navbar">
             <img src="{% static 'images/icono-nav3.png' %}" alt="Logo Crear Amoblamientos" id="logo-img">
 
 
@@ -56,10 +57,12 @@
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-       
+    {% comment %} FORMULARIO DE CONTACTO {% endcomment %}
+
     <script>
     emailjs.init("-pLY-3t3DcwFdV-29");
     </script>
+
 
     <script>
     document.getElementById("formulario-contacto")
@@ -82,6 +85,14 @@
 
     });
     </script>
+
+{% comment %} ABRIR IMAGENES DE PRODUCTOS {% endcomment %}
+    <script>
+    function showImage(src) {
+        document.getElementById("modalImage").src = src;
+    }
+    </script>
+
 
 </body>
 
