@@ -163,6 +163,18 @@ body {
     animation: fadeIn 1.5s ease forwards;
 }
 
+@media (max-width: 768px) {
+    #subtitulo-bienvenida {
+        font-size: 16px;
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    #subtitulo-bienvenida {
+        font-size: 14px;
+    }
+}
+
 #boton-ver-productos {
     background-color: var(--violeta-principal);
     padding: 12px 25px;
@@ -256,6 +268,17 @@ body {
     border-radius: 10px;
     box-shadow: 0px 6px 16px rgba(0,0,0,0.08);
     border-top: 4px solid var(--violeta-principal);
+}
+
+@media (max-width: 768px) {
+    .card-title {
+    font-size: 17px;
+    font-weight: bold;
+    }
+
+    .card-text {
+        font-size: 13px;
+    }
 }
 
 .nombre-producto {
@@ -456,8 +479,8 @@ body {
 
 /* RIGHT COLUMN (MAP) */
 .bloque-contacto {
-    flex: 1 1 400px;
-    min-width: 300px;
+    flex: 1 1 350px;
+
     max-width: 600px;
     z-index: 2;
 }
@@ -638,7 +661,7 @@ body {
 
 @media (max-width:768px) {
     .titulo-productos {
-        font-size: 30px;
+        font-size: 25px;
     }
 
     .subtitulo-productos {
@@ -646,10 +669,8 @@ body {
     }
 
     .titulo-categoria {
-    font-weight: 500;
     font-size: 17px;
-
-}
+    }
 }
 
 /* FILTRO */
