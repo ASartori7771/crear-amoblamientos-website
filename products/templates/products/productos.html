@@ -1,48 +1,71 @@
-
 {% extends "core/base.html" %}
 {% load static %}
 
 {% block content %}
+
+<!-- =========================================
+BARRA SUPERIOR DE PRODUCTOS
+========================================= -->
 
 <section id="barra-productos">
 
     <div class="contenedor-barra">
 
         <div class="texto-barra">
+
             <h2 class="titulo-productos">Productos</h2>
 
             <p class="subtitulo-productos">
                 Descubrí nuestros muebles personalizados diseñados para tu espacio.
             </p>
 
-            <!-- FILA FLEX PARA ALINEAR -->
+
+            <!-- FILA FLEX: TÍTULO + FILTRO -->
             <div class="fila-categoria">
 
                 <h4 class="titulo-categoria">
+
                     {% if categoria %}
                         {{ categoria.name }}
                     {% else %}
                         Mostrando todos los productos
                     {% endif %}
+
                 </h4>
 
+
+                <!-- DROPDOWN DE CATEGORÍAS -->
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+
+                    <button
+                        class="btn btn-secondary dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown">
+
                         Categorías
+
                     </button>
 
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/productos/">Mostrar todos</a></li>
+
+                        <li>
+                            <a class="dropdown-item" href="/productos/">
+                                Mostrar todos
+                            </a>
+                        </li>
 
                         {% for categoria in categorias %}
-                            <li>
-                                <a class="dropdown-item" href="?categoria={{ categoria.id }}">
-                                    {{ categoria.name }}
-                                </a>
-                            </li>
+                        <li>
+                            <a class="dropdown-item" href="?categoria={{ categoria.id }}">
+                                {{ categoria.name }}
+                            </a>
+                        </li>
                         {% endfor %}
+
                     </ul>
+
                 </div>
+                <!-- FIN DROPDOWN -->
 
             </div>
             <!-- FIN FILA FLEX -->
@@ -53,52 +76,91 @@
 
 </section>
 
+
+
+<!-- =========================================
+GRID DE PRODUCTOS
+========================================= -->
+
 <section class="container mt-4">
+
     <div class="row">
+
         {% for producto in productos %}
-            <div id="card" class="col-md-4 col-sm-6 mb-4">
-                <div class="card h-100">
 
-                    {% if producto.image %}
-                        <img src="{{ producto.image.url }}" 
-                        class="card-img-top"
-                        data-bs-toggle="modal"
-                        data-bs-target="#imageModal"
-                        onclick="showImage(this.src)" 
-                        alt="{{ producto.name }}">
-                    {% endif %}
+        <div id="card" class="col-md-4 col-sm-6 mb-4">
 
-                    <div class="card-body">
-                        <h5 class="card-title">{{ producto.name }}</h5>
-                        <p class="card-text">{{ producto.description }}</p>
-                        <p class="fw-bold">$ {{ producto.price }}</p>
-                    </div>
+            <div class="card h-100">
+
+                {% if producto.image %}
+
+                <img
+                    src="{{ producto.image.url }}"
+                    class="card-img-top"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal"
+                    onclick="showImage(this.src)"
+                    alt="{{ producto.name }}">
+
+                {% endif %}
+
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        {{ producto.name }}
+                    </h5>
+
+                    <p class="card-text">
+                        {{ producto.description }}
+                    </p>
+
+                    <p class="fw-bold">
+                        $ {{ producto.price }}
+                    </p>
 
                 </div>
+
             </div>
+
+        </div>
+
         {% endfor %}
 
     </div>
+
 </section>
 
 
-<!-- IMAGE MODAL -->
+
+<!-- =========================================
+MODAL PARA VER IMÁGENES
+========================================= -->
+
 <div class="modal fade" id="imageModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-    <div class="modal-content bg-transparent border-0">
 
-      <button type="button"
-              class="btn-close btn-close-white ms-auto me-2 mt-2"
-              data-bs-dismiss="modal"></button>
+    <div class="modal-dialog modal-dialog-centered modal-xl">
 
-      <div class="modal-body text-center">
-        <img id="modalImage" class="img-fluid" style="max-height:90vh;">
-      </div>
+        <div class="modal-content bg-transparent border-0">
+
+            <button
+                type="button"
+                class="btn-close btn-close-white ms-auto me-2 mt-2"
+                data-bs-dismiss="modal">
+            </button>
+
+            <div class="modal-body text-center">
+
+                <img
+                    id="modalImage"
+                    class="img-fluid"
+                    style="max-height:90vh;">
+
+            </div>
+
+        </div>
 
     </div>
-  </div>
+
 </div>
 
-
 {% endblock %}
-

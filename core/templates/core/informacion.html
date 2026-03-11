@@ -1,5 +1,4 @@
 {% extends 'core/base.html' %}
-
 {% load static %}
 
 {% block content %}
@@ -7,80 +6,106 @@
 
 <section id="info-principal">
 
-    <h2 class="titulo-seccion">Sobre Nosotros</h2>
-    
+<h2 class="titulo-seccion">Sobre Nosotros</h2>
 
-    <!-- Trayectoria -->
-    <div class="bloque-info">
-        <div class="contenido-info">
 
-             <div class="texto-info">
+<!-- =================================================
+TRAYECTORIA
+================================================= -->
+
+<div class="bloque-info">
+
+    <div class="contenido-info">
+
+        <div class="texto-info">
+
             <h3>Nuestra Trayectoria</h3>
+
             <p>
-                Desde 2008, Crear Amoblamientos se dedica al diseño y fabricación de muebles personalizados. Comenzamos como un pequeño taller 
-                familiar y hoy contamos con un equipo especializado que combina experiencia artesanal con tecnología moderna.
+                Desde 2008, Crear Amoblamientos se dedica al diseño y fabricación de muebles personalizados. 
+                Comenzamos como un pequeño taller familiar y hoy contamos con un equipo especializado que combina 
+                experiencia artesanal con tecnología moderna.
 
-                A lo largo de los años hemos acompañado a numerosos clientes en proyectos residenciales y comerciales, consolidando 
-                una trayectoria basada en la confianza, la responsabilidad y el compromiso con la calidad. Esta evolución nos permitió 
-                crecer de manera sostenida sin perder nuestra esencia: el trabajo cuidadoso, la atención personalizada y la pasión por cada detalle.
+                A lo largo de los años hemos acompañado a numerosos clientes en proyectos residenciales y comerciales, 
+                consolidando una trayectoria basada en la confianza, la responsabilidad y el compromiso con la calidad. 
+                Esta evolución nos permitió crecer de manera sostenida sin perder nuestra esencia: el trabajo cuidadoso, 
+                la atención personalizada y la pasión por cada detalle.
             </p>
-            </div>
-
-            <img src="{% static 'images/sobre-nos3.jpg' %}" class='img-info'>
 
         </div>
+
+        <img src="{% static 'images/sobre-nos3.jpg' %}" class="img-info">
+
     </div>
 
-    <!-- Calidad -->
-    <div class="bloque-info">
+</div>
 
-        <div class="contenido-info">
 
-            <img src="{% static 'images/sobre-nos2.jpg' %}" class='img-info'>
 
-            <div class="texto-info">
+<!-- =================================================
+CALIDAD
+================================================= -->
+
+<div class="bloque-info">
+
+    <div class="contenido-info">
+
+        <img src="{% static 'images/sobre-nos2.jpg' %}" class="img-info">
+
+        <div class="texto-info">
+
             <h3>Calidad y Método de Producción</h3>
+
             <p>
-                Cada pieza se fabrica con materiales seleccionados y procesos controlados. Trabajamos con maderas premium, 
-                herrajes de alta durabilidad y terminaciones profesionales que garantizan resistencia, estética y larga vida útil.
+                Cada pieza se fabrica con materiales seleccionados y procesos controlados. Trabajamos con maderas 
+                premium, herrajes de alta durabilidad y terminaciones profesionales que garantizan resistencia, 
+                estética y larga vida útil.
 
-                Nuestro proceso de producción combina técnicas artesanales con herramientas modernas, lo que nos permite lograr precisión en 
-                los detalles y mantener estándares de calidad constantes. Supervisamos cada etapa, desde el corte y armado hasta el acabado final, 
-                asegurando que cada mueble cumpla con altos niveles de funcionalidad, seguridad y terminación.
+                Nuestro proceso de producción combina técnicas artesanales con herramientas modernas, lo que nos 
+                permite lograr precisión en los detalles y mantener estándares de calidad constantes. Supervisamos 
+                cada etapa, desde el corte y armado hasta el acabado final, asegurando que cada mueble cumpla con 
+                altos niveles de funcionalidad, seguridad y terminación.
             </p>
-            </div>
-
-
 
         </div>
+
     </div>
 
-    <!-- Diferencial -->
-    <div class="bloque-info">
-        <div class="contenido-info">
+</div>
 
-            <div class="texto-info">
+
+
+<!-- =================================================
+DIFERENCIAL
+================================================= -->
+
+<div class="bloque-info">
+
+    <div class="contenido-info">
+
+        <div class="texto-info">
 
             <h3>Nuestro Diferencial</h3>
+
             <p>
-                Nos enfocamos en crear soluciones a medida. Escuchamos las necesidades de cada cliente y diseñamos muebles únicos 
-                que se integran perfectamente a sus espacios, combinando funcionalidad, estilo y confort.
+                Nos enfocamos en crear soluciones a medida. Escuchamos las necesidades de cada cliente y diseñamos 
+                muebles únicos que se integran perfectamente a sus espacios, combinando funcionalidad, estilo y confort.
 
-                Trabajamos de manera personalizada en cada proyecto, desde la idea inicial hasta la instalación final, adaptándonos a dimensiones, 
-                estilos y requerimientos específicos. Esto nos permite fabricar muebles a medida que optimizan el uso del espacio, reflejan la 
-                identidad de cada cliente y garantizan un resultado duradero y de alta calidad.
+                Trabajamos de manera personalizada en cada proyecto, desde la idea inicial hasta la instalación final, 
+                adaptándonos a dimensiones, estilos y requerimientos específicos. Esto nos permite fabricar muebles 
+                a medida que optimizan el uso del espacio, reflejan la identidad de cada cliente y garantizan un 
+                resultado duradero y de alta calidad.
             </p>
-            </div>
-
-            <img src="{% static 'images/sobre-nos4.jpg' %}" class='img-info'>
 
         </div>
 
+        <img src="{% static 'images/sobre-nos4.jpg' %}" class="img-info">
+
     </div>
+
+</div>
+
 
 </section>
 
-
-
 {% endblock %}
-

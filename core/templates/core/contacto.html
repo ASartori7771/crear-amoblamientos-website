@@ -1,72 +1,117 @@
 {% extends 'core/base.html' %}
-
 {% load static %}
 
 {% block content %}
-
 
 <h2 class="titulo-seccion">Contacto</h2>
 
 <section id="contacto-principal">
 
-<div class="contacto-overlay"></div>
+    <div class="contacto-overlay"></div>
+
+
+    <!-- =========================================
+    CONTENEDOR PRINCIPAL
+    ========================================= -->
 
     <div id="contenedor-contacto">
 
+        <!-- INFO WHATSAPP -->
         <div class="info-extra-contacto">
+
             <h3>Comunicate a nuestro WhatsApp</h3>
-            <p class="whatsapp-num"><strong>WhatsApp:</strong> +54 11 5555-1234</p>
+
+            <p class="whatsapp-num">
+                <strong>WhatsApp:</strong> +54 11 5555-1234
+            </p>
+
         </div>
 
-        <!-- FORMULARIO -->
+
+        <!-- =========================================
+        FORMULARIO DE CONTACTO
+        ========================================= -->
+
         <div class="bloque-contacto">
 
-            <h3> O envíanos un mensaje</h3>
+            <h3>O envíanos un mensaje</h3>
 
             <form id="formulario-contacto">
 
                 <label>Nombre</label>
-                <input type="text" name="from_name" placeholder="Tu nombre" required>
+                <input
+                    type="text"
+                    name="from_name"
+                    placeholder="Tu nombre"
+                    required
+                >
 
                 <label>Email</label>
-                <input type="email" name="reply_to" placeholder="tu@email.com" required>
-                
+                <input
+                    type="email"
+                    name="reply_to"
+                    placeholder="tu@email.com"
+                    required
+                >
+
                 <label>Titulo</label>
-                <input type="text" name="title" placeholder="Asunto" required>
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Asunto"
+                    required
+                >
 
                 <label>Mensaje</label>
-                <textarea class="mensaje" name="message" placeholder="Escribí tu consulta..." required></textarea>
+                <textarea
+                    class="mensaje"
+                    name="message"
+                    placeholder="Escribí tu consulta..."
+                    required
+                ></textarea>
 
                 <button type="submit">Enviar</button>
 
             </form>
 
+
+            <!-- INFO EMAIL -->
             <div class="info-extra-contacto">
-                <p><strong>Email:</strong> contacto@crearamoblamientos.com</p>
+
+                <p>
+                    <strong>Email:</strong>
+                    contacto@crearamoblamientos.com
+                </p>
+
             </div>
 
         </div>
 
     </div>
 
-        <!-- UBICACIÓN -->
+
+    <!-- =========================================
+    UBICACIÓN / SHOWROOM
+    ========================================= -->
+
     <div class="bloque-contacto">
 
-            <h3>Veni a visitar nuestro showroom!</h3>
+        <h3>Veni a visitar nuestro showroom!</h3>
 
-            <p>
-                Av. Gral. Mosconi 2675,<br>
-                Cdad. Autónoma de Buenos Aires
-            </p>
+        <p>
+            Av. Gral. Mosconi 2675,<br>
+            Cdad. Autónoma de Buenos Aires
+        </p>
 
-            <div class="mapa">
-                <img src="{% static 'images/maps.jpg' %}" alt="Ubicación del local">
-            </div>
+        <div class="mapa">
+            <img
+                src="{% static 'images/maps.jpg' %}"
+                alt="Ubicación del local"
+            >
+        </div>
 
     </div>
 
-
 </section>
-
 
 {% endblock %}
