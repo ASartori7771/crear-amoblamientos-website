@@ -44,7 +44,7 @@ Thumbs.db
 .idea/
 
 # =========================
-# DATABASE BACKUPS (IMPORTANT)
+# DATABASE BACKUPS 
 # =========================
 *.sql
 

@@ -36,7 +36,8 @@
 
             <h3>O envíanos un mensaje</h3>
 
-            <form id="formulario-contacto">
+            <form method="POST" action="{% url 'contacto' %}">
+                {% csrf_token %}
 
                 <label>Nombre</label>
                 <input
@@ -74,6 +75,13 @@
 
             </form>
 
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="mensaje {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
 
             <!-- INFO EMAIL -->
             <div class="info-extra-contacto">

@@ -507,6 +507,13 @@ body {
     cursor: pointer;
 }
 
+.mensaje.success {
+    color: green;
+}
+
+.mensaje.error {
+    color: red;
+}
 
 /* mapa */
 

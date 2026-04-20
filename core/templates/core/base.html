@@ -119,44 +119,7 @@ SCRIPTS
 <!-- FLICKITY -->
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-<!-- EMAILJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-
-{% comment %} FORMULARIO DE CONTACTO {% endcomment %}
-
-<script>
-emailjs.init("-pLY-3t3DcwFdV-29");
-</script>
-
-<script>
-
-document
-.getElementById("formulario-contacto")
-.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    emailjs.sendForm(
-        "service_7j3vuwm",
-        "template_7o51f4o",
-        this
-    )
-    .then(() => {
-
-        alert("Mensaje enviado correctamente!");
-        this.reset();
-
-    }, (error) => {
-
-        alert("Error al enviar. Intenta nuevamente.");
-        console.log(error);
-
-    });
-
-});
-
-</script>
 
 
 {% comment %} ABRIR IMÁGENES DE PRODUCTOS {% endcomment %}
