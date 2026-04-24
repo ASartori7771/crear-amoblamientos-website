@@ -11,7 +11,8 @@ from products.models import Category, Product
         "staticfiles": {
             "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
         },
-    }
+    },
+    SECURE_SSL_REDIRECT=False,
 )
 class ContactoEmailTest(TestCase):
 

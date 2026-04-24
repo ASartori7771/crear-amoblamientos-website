@@ -12,7 +12,8 @@ from unittest.mock import patch
         "staticfiles": {
             "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
         },
-    }
+    },
+    SECURE_SSL_REDIRECT=False,
 )
 class ContactoEmailTest(TestCase):
 
