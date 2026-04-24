@@ -20,6 +20,7 @@ import os
 from dotenv import load_dotenv
 import dj_database_url
 
+
 load_dotenv()
 
 
@@ -45,7 +46,7 @@ ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://crear-amoblamientos-website.onrender.com"
+    "http://15.228.208.50",
 ]
 
 

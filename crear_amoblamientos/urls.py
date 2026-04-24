@@ -18,17 +18,19 @@ from django.contrib import admin
 from django.urls import path
 from core import views
 from django.urls import include
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.inicio, name = 'inicio'),
-    path('informacion/', views.informacion, name = 'informacion'),
-    path('contacto/', views.contacto, name = 'contacto'),
+    path('', views.inicio, name='inicio'),
+    path('informacion/', views.informacion, name='informacion'),
+    path('contacto/', views.contacto, name='contacto'),
     path("productos/", include("products.urls")),
 
 ]
-from django.conf import settings
-from django.conf.urls.static import static
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

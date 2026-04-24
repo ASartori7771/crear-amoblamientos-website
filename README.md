@@ -1,73 +1,100 @@
 # Crear Amoblamientos Website
 
-Official website for **Crear Amoblamientos**, a furniture design and manufacturing business based in Buenos Aires, Argentina.  
-The site showcases custom furniture products, company information, and allows visitors to contact the business directly.
+Official website for Crear Amoblamientos, a furniture design and manufacturing business based in Buenos Aires, Argentina. The site showcases custom furniture products, company information, and allows visitors to contact the business directly.
+
+![CI](https://github.com/ASartori7771/crear-amoblamientos-website/actions/workflows/ci.yml/badge.svg)
 
 ---
 
 ## Overview
 
-This project is a full-stack web application built with **Django** that presents the products and services of Crear Amoblamientos.  
-It includes a product catalog with categories, a responsive interface, and a backend-powered contact form.
-
-The goal of the website is to provide a clean and modern online presence while making it easy for potential clients to explore furniture designs and contact the business.
+This project is a full-stack web application built with Django that presents the products and services of Crear Amoblamientos. It includes a product catalog with categories, a responsive interface, and a backend-powered contact form.
 
 ---
 
 ## Features
 
-* Product catalog with categories
-* Responsive design using Bootstrap
-* Image gallery for products
-* Contact form handled via **Django backend (SMTP email sending)**
-* WhatsApp contact information
-* Company information and history section
-* Product filtering by category
-* Cloud image storage using Cloudinary
-* Production-ready static file handling with WhiteNoise
+- Product catalog with categories
+- Responsive design using Bootstrap
+- Image gallery for products
+- Contact form handled via Django backend (SMTP email sending)
+- WhatsApp contact information
+- Company information and history section
+- Product filtering by category
+- Cloud image storage using Cloudinary
+- Production-ready static file handling with WhiteNoise
 
 ---
 
 ## Technologies Used
 
-### Backend
+**Backend**
+- Django 5.2
+- Python 3.11
+- Gunicorn (WSGI server)
 
-* Django
-* Python
+**Frontend**
+- HTML / CSS / Bootstrap / JavaScript
 
-### Frontend
-
-* HTML
-* CSS
-* Bootstrap
-* JavaScript
-
-### Services and Tools
-
-* AWS EC2 (deployment)
-* Gunicorn (WSGI server)
-* Nginx (reverse proxy)
-* PostgreSQL (via `dj_database_url`)
-* Cloudinary (media storage)
-* SMTP (Gmail) for email handling
-* WhiteNoise (static file serving)
+**Infrastructure**
+- AWS EC2
+- Nginx (reverse proxy)
+- PostgreSQL (via `dj_database_url`)
+- Cloudinary (media storage)
+- WhiteNoise (static file serving)
+- Gmail SMTP (email handling)
 
 ---
 
-## Contact Form (SMTP)
+## Contact Form
 
 The contact form is handled securely on the backend using Django and SMTP.
+Form submissions are validated server-side, processed in the backend, and sent via Gmail SMTP — no exposed API keys, no client-side email services.
 
-Instead of using client-side services, form submissions are:
-1. Validated using Django Forms
-2. Processed in the backend
-3. Sent via email using Gmail SMTP
+---
 
-This improves:
-* security (no exposed API keys)
-* reliability
-* control over email handling
+## Testing
+
+The project includes automated tests for core functionality:
+
+- **Email tests** (`tests/test_email.py`): verifies the contact form sends email on valid submission, skips sending on invalid input, and handles SMTP failures gracefully
+- **Model tests** (`tests/test_models.py`): verifies Category and Product models, field constraints, relationships, and cascade behaviour
+
+Run tests locally:
+
+```bash
+python manage.py test tests
+```
 
 ---
 
 ## Project Structure
+crear-amoblamientos/
+├── core/               # Contact form, static pages
+├── products/           # Product catalog and categories
+├── tests/              # Automated tests
+├── templates/          # HTML templates
+├── staticfiles/        # Collected static files
+├── manage.py
+└── requirements.txt
+
+---
+
+## CI/CD
+
+This project uses GitHub Actions for continuous integration. On every push to `main`, the pipeline runs all tests automatically. Deployment is handled via AWS EC2.
+
+---
+
+## Local Setup
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+cd crear-amoblamientos
+python -m venv venv
+venv\Scripts\activate      # Windows
+pip install -r requirements.txt
+cp .env.example .env       # fill in your environment variables
+python manage.py migrate
+python manage.py runserver
+```

@@ -1,4 +1,5 @@
-from django import forms 
+from django import forms
+
 
 class ContactForm(forms.Form):
     from_name = forms.CharField(max_length=100)

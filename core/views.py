@@ -1,12 +1,13 @@
 from django.shortcuts import redirect, render
-from django.core.mail import EmailMessage, send_mail
+from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.conf import settings
 from .forms import ContactForm
 
 
 def inicio(request):
-    return render(request,'core/inicio.html')
+    return render(request, 'core/inicio.html')
+
 
 def contacto(request):
     if request.method == "POST":
@@ -51,4 +52,4 @@ Mensaje:
 
 
 def informacion(request):
-    return render(request,'core/informacion.html')
+    return render(request, 'core/informacion.html')
