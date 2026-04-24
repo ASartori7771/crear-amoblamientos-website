@@ -12,12 +12,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    env:
-      # Keeps Django from needing a real DB for these tests
+
+    # Keeps Django from needing a real DB for these tests     
+    env: 
+      DJANGO_SECRET_KEY: ci-fake-secret-key-not-for-production
       DATABASE_URL: sqlite:///test.db
-      SECRET_KEY: ci-fake-secret-key-not-for-production
+      DEBUG: "False"
       DEFAULT_FROM_EMAIL: test@example.com
       TO_EMAIL: dest@example.com
+      SECURE_SSL_REDIRECT: "False"
+      ALLOWED_HOSTS: "localhost,127.0.0.1"
 
     steps:
       - name: Checkout code
