@@ -68,15 +68,13 @@ python manage.py test tests
 
 ---
 
-## Project Structure
-crear-amoblamientos/
-├── core/               # Contact form, static pages
-├── products/           # Product catalog and categories
-├── tests/              # Automated tests
-├── templates/          # HTML templates
-├── staticfiles/        # Collected static files
-├── manage.py
-└── requirements.txt
+SCREENSHOTS
+
+### 🏠 Home
+<img src="assets/home.jpg" width="700">
+
+### 🏠 Catalog with db
+<img src="assets/catalog.jpg" width="700">
 
 ---
 
