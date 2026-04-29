@@ -478,7 +478,7 @@ body {
 
 /* formulario */
 
-#formulario-contacto {
+#formulario-contacto{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -490,6 +490,13 @@ body {
 
     border: 1px solid #ddd;
     border-radius: 5px;
+}
+
+#formulario-contacto label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
 }
 
 .mensaje {
