@@ -4,78 +4,180 @@
 {% block content %}
 
 
-<!-- =================================================
-HERO
-================================================= -->
+<!-- ================================
+     HERO
+================================ -->
 
-<section id="hero-inicio">
+<section id="hero">
 
+    <div class="hero-bg"
+         style="background-image: url('{% static 'images/cocina-fondo.jpeg' %}')">
+    </div>
     <div class="hero-overlay"></div>
 
-    <h2 id="titulo-bienvenida">
-        Bienvenido a Crear Amoblamientos
-    </h2>
+    <div class="hero-content">
+        <span class="hero-eyebrow">Buenos Aires · Desde 2010</span>
+        <h1 id="hero-title">
+            Amoblamientos<br>que definen espacios
+        </h1>
+        <p id="hero-sub">
+            Diseño a medida para cocinas, baños y living.<br>
+            Calidad artesanal con acabado premium.
+        </p>
+        <a href="{% url 'productos' %}" class="btn-primary-cta">
+            Ver Productos
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
 
-    <p id="subtitulo-bienvenida">
-        Diseños únicos, calidad premium y confort garantizado.
-    </p>
+    <div class="hero-scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </div>
 
 </section>
 
 
+<!-- ================================
+     STRIP / VALORES
+================================ -->
 
-<!-- =================================================
-CAROUSEL PRODUCTOS DESTACADOS
-================================================= -->
+<div id="valores-strip">
+    <div class="valor-item">
+        <strong>Diseño a medida</strong>
+        <span>Cada pieza, única</span>
+    </div>
+    <div class="valor-sep"></div>
+    <div class="valor-item">
+        <strong>Materiales premium</strong>
+        <span>Durabilidad garantizada</span>
+    </div>
+    <div class="valor-sep"></div>
+    <div class="valor-item">
+        <strong>Fabricación propia</strong>
+        <span>Sin intermediarios</span>
+    </div>
+    <div class="valor-sep"></div>
+    <div class="valor-item">
+        <strong>Instalación incluida</strong>
+        <span>Llave en mano</span>
+    </div>
+</div>
 
-<section id="carousel-muebles">
 
-    <h2 class="titulo-seccion">Productos Destacados</h2>
+<!-- ================================
+     DESTACADOS / CAROUSEL
+================================ -->
 
+<section id="destacados">
+
+    <div class="section-header">
+        <span class="section-label">Galería</span>
+        <h2 class="section-title">Productos Destacados</h2>
+        <p class="section-sub">Una selección de nuestros trabajos más recientes</p>
+    </div>
 
     <div class="carousel"
          data-flickity='{
             "wrapAround": true,
-            "autoPlay": 2500,
+            "autoPlay": 2800,
             "cellAlign": "center",
-            "contain": true
+            "contain": true,
+            "pageDots": false
          }'>
 
         <div class="carousel-cell">
             <div class="cell-inner">
-                <img src="{% static 'images/mesada-bano3.jpg' %}">
+                <img src="{% static 'images/mesada-bano3.jpg' %}" alt="Mesada de baño">
+                <div class="cell-label">Mesada de Baño</div>
             </div>
         </div>
 
         <div class="carousel-cell">
             <div class="cell-inner">
-                <img src="{% static 'images/botiquin1.webp' %}">
+                <img src="{% static 'images/botiquin1.webp' %}" alt="Botiquín">
+                <div class="cell-label">Botiquín</div>
             </div>
         </div>
 
         <div class="carousel-cell">
             <div class="cell-inner">
-                <img src="{% static 'images/rack-tv3.jpg' %}">
+                <img src="{% static 'images/rack-tv3.jpg' %}" alt="Rack TV">
+                <div class="cell-label">Rack TV</div>
             </div>
         </div>
 
         <div class="carousel-cell">
             <div class="cell-inner">
-                <img src="{% static 'images/mesada-cocina1.jpg' %}">
+                <img src="{% static 'images/mesada-cocina1.jpg' %}" alt="Mesada de cocina">
+                <div class="cell-label">Mesada de Cocina</div>
             </div>
         </div>
 
     </div>
 
+    <div class="section-cta">
+        <a href="{% url 'productos' %}" class="btn-outline-cta">Ver catálogo completo</a>
+    </div>
 
-    <div class="botones">
+</section>
 
-        <a href="{% url 'productos' %}" class="btn-productos">
-            Ver mas Productos
+
+<!-- ================================
+     CATEGORÍAS RÁPIDAS
+================================ -->
+
+<section id="categorias-rapidas">
+
+    <div class="section-header">
+        <span class="section-label">Especialidades</span>
+        <h2 class="section-title">¿Qué estás buscando?</h2>
+    </div>
+
+    <div id="cat-grid">
+
+        <a href="{% url 'productos' %}?categoria=cocina" class="cat-card" style="background-image: url('{% static 'images/mesada-cocina1.jpg' %}')">
+            <div class="cat-overlay"></div>
+            <div class="cat-label">
+                <span>Cocinas</span>
+                <small>Mesadas · Alacenas · Bajo mesadas</small>
+            </div>
+        </a>
+
+        <a href="{% url 'productos' %}?categoria=bano" class="cat-card" style="background-image: url('{% static 'images/mesada-bano3.jpg' %}')">
+            <div class="cat-overlay"></div>
+            <div class="cat-label">
+                <span>Baños</span>
+                <small>Vanitorios · Botiquines · Repisas</small>
+            </div>
+        </a>
+
+        <a href="{% url 'productos' %}?categoria=living" class="cat-card" style="background-image: url('{% static 'images/rack-tv3.jpg' %}')">
+            <div class="cat-overlay"></div>
+            <div class="cat-label">
+                <span>Living & Comedor</span>
+                <small>Racks · Bibliotecas · Muebles TV</small>
+            </div>
         </a>
 
     </div>
 
 </section>
+
+
+<!-- ================================
+     CTA FINAL
+================================ -->
+
+<section id="cta-final">
+    <div id="cta-final-inner">
+        <h2>¿Tenés un proyecto en mente?</h2>
+        <p>Contanos tu idea y diseñamos el mueble perfecto para tu espacio.</p>
+        <a href="{% url 'contacto' %}" class="btn-primary-cta">Hablar con nosotros</a>
+    </div>
+</section>
+
 
 {% endblock %}

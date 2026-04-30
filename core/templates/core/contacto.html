@@ -3,94 +3,67 @@
 
 {% block content %}
 
-<h2 class="titulo-seccion">Contacto</h2>
+<div class="contacto-page-header">
+    <span class="section-label">Hablemos</span>
+    <h2 class="section-title">Contacto</h2>
+    <p class="section-sub">Escribinos, llamanos o visitá nuestro showroom.</p>
+</div>
 
 <section id="contacto-principal">
 
     <div class="contacto-overlay"></div>
 
-
-    <!-- =========================================
-    CONTENEDOR PRINCIPAL
-    ========================================= -->
-
+    <!-- COLUMNA IZQUIERDA -->
     <div id="contenedor-contacto">
 
-        <!-- INFO WHATSAPP -->
         <div class="info-extra-contacto">
-
-            <h3>Comunicate a nuestro WhatsApp</h3>
-
-            <p class="whatsapp-num">
-                <strong>WhatsApp:</strong> +54 9 11 5709-5547
-            </p>
-
+            <span class="section-label">WhatsApp</span>
+            <h3>Comunicate directamente</h3>
+            <a href="https://wa.me/5491157095547" class="whatsapp-num" target="_blank">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.117 1.532 5.845L0 24l6.335-1.54A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.727.906.936-3.617-.235-.372A9.818 9.818 0 1112 21.818z"/>
+                </svg>
+                +54 9 11 5709-5547
+            </a>
         </div>
-
-
-        <!-- =========================================
-        FORMULARIO DE CONTACTO
-        ========================================= -->
 
         <div class="bloque-contacto">
 
-            <h3>O envíanos un mensaje</h3>
+            <span class="section-label">Formulario</span>
+            <h3>O envianos un mensaje</h3>
 
             <form id="formulario-contacto" method="POST" action="{% url 'contacto' %}">
                 {% csrf_token %}
 
                 <label>Nombre</label>
-                <input
-                    type="text"
-                    name="from_name"
-                    placeholder="Tu nombre"
-                    required
-                >
+                <input type="text" name="from_name" placeholder="Tu nombre" required>
 
                 <label>Email</label>
-                <input
-                    type="email"
-                    name="reply_to"
-                    placeholder="tu@email.com"
-                    required
-                >
+                <input type="email" name="reply_to" placeholder="tu@email.com" required>
 
-                <label>Titulo</label>
-                <input
-                    type="text"
-                    name="title"
-                    placeholder="Asunto"
-                    required
-                >
+                <label>Asunto</label>
+                <input type="text" name="title" placeholder="¿En qué te podemos ayudar?" required>
 
                 <label>Mensaje</label>
-                <textarea
-                    class="mensaje"
-                    name="message"
-                    placeholder="Escribí tu consulta..."
-                    required
-                ></textarea>
+                <textarea name="message" placeholder="Contanos tu proyecto o consulta..." required></textarea>
 
-                <button type="submit">Enviar</button>
+                <button type="submit">Enviar mensaje</button>
 
             </form>
 
             {% if messages %}
                 {% for message in messages %}
-                    <div class="mensaje {{ message.tags }}">
-                        {{ message }}
-                    </div>
+                    <div class="form-feedback {{ message.tags }}">{{ message }}</div>
                 {% endfor %}
             {% endif %}
 
-            <!-- INFO EMAIL -->
-            <div class="info-extra-contacto">
-
-                <p>
-                    <strong>Email:</strong>
-                    contacto@crearamoblamientos.com
-                </p>
-
+            <div class="contacto-email-info">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                contacto@crearamoblamientos.com
             </div>
 
         </div>
@@ -98,26 +71,22 @@
     </div>
 
 
-    <!-- =========================================
-    UBICACIÓN / SHOWROOM
-    ========================================= -->
+    <!-- COLUMNA DERECHA: SHOWROOM -->
+    <div class="bloque-contacto bloque-showroom">
+        <span class="section-label">Showroom</span>
+        <h3>Vení a visitarnos</h3>
 
-    <div class="bloque-contacto">
-
-        <h3>Veni a visitar nuestro showroom!</h3>
-
-        <p>
-            Av. Gral. Mosconi 2675,<br>
-            Cdad. Autónoma de Buenos Aires
-        </p>
-
-        <div class="mapa">
-            <img
-                src="{% static 'images/maps.jpg' %}"
-                alt="Ubicación del local"
-            >
+        <div class="showroom-address">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Av. Gral. Mosconi 2675,<br>Cdad. Autónoma de Buenos Aires</span>
         </div>
 
+        <div class="mapa">
+            <img src="{% static 'images/maps.jpg' %}" alt="Ubicación del local">
+        </div>
     </div>
 
 </section>

@@ -3,97 +3,56 @@
 
 {% block content %}
 
-<!-- =========================================
-BARRA SUPERIOR DE PRODUCTOS
-========================================= -->
-
+<!-- BARRA SUPERIOR -->
+<div id="productos-page">
 <section id="barra-productos">
-
     <div class="contenedor-barra">
-
         <div class="texto-barra">
 
+            <span class="section-label">Catálogo</span>
             <h2 class="titulo-productos">Productos</h2>
-
             <p class="subtitulo-productos">
                 Descubrí nuestros muebles personalizados diseñados para tu espacio.
             </p>
 
-
-            <!-- FILA FLEX: TÍTULO + FILTRO -->
             <div class="fila-categoria">
 
                 <h4 class="titulo-categoria">
-
                     {% if categoria %}
                         {{ categoria.name }}
                     {% else %}
-                        Mostrando todos los productos
+                        Todos los productos
                     {% endif %}
-
                 </h4>
 
-
-                <!-- DROPDOWN DE CATEGORÍAS -->
                 <div class="dropdown">
-
-                    <button
-                        class="btn btn-secondary dropdown-toggle"
-                        type="button"
-                        data-bs-toggle="dropdown">
-
-                        Categorías
-
+                    <button class="btn-filtro dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Filtrar por categoría
                     </button>
-
-                    <ul class="dropdown-menu">
-
-                        <li>
-                            <a class="dropdown-item" href="/productos/">
-                                Mostrar todos
-                            </a>
-                        </li>
-
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="/productos/">Mostrar todos</a></li>
                         {% for categoria in categorias %}
-                        <li>
-                            <a class="dropdown-item" href="?categoria={{ categoria.id }}">
-                                {{ categoria.name }}
-                            </a>
-                        </li>
+                        <li><a class="dropdown-item" href="?categoria={{ categoria.id }}">{{ categoria.name }}</a></li>
                         {% endfor %}
-
                     </ul>
-
                 </div>
-                <!-- FIN DROPDOWN -->
 
             </div>
-            <!-- FIN FILA FLEX -->
-
         </div>
-
     </div>
-
 </section>
+</div>
 
 
-
-<!-- =========================================
-GRID DE PRODUCTOS
-========================================= -->
-
-<section class="container mt-4">
-
-    <div class="row">
+<!-- GRID DE PRODUCTOS -->
+<section class="seccion-productos-wrapper">
+    <div class="seccion-productos">
 
         {% for producto in productos %}
+        <div class="card" style="animation-delay: {{ forloop.counter0 }}00ms">
 
-        <div id="card" class="col-md-4 col-sm-6 mb-4">
-
-            <div class="card h-100">
-
-                {% if producto.image %}
-
+            {% if producto.image %}
+            <div class="card-img-wrapper">
                 <img
                     src="{{ producto.image.url }}"
                     class="card-img-top"
@@ -101,66 +60,37 @@ GRID DE PRODUCTOS
                     data-bs-target="#imageModal"
                     onclick="showImage(this.src)"
                     alt="{{ producto.name }}">
-
-                {% endif %}
-
-                <div class="card-body">
-
-                    <h5 class="card-title">
-                        {{ producto.name }}
-                    </h5>
-
-                    <p class="card-text">
-                        {{ producto.description }}
-                    </p>
-
-                    <p class="fw-bold">
-                        $ {{ producto.price }}
-                    </p>
-
+                <div class="card-img-overlay-hint">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
                 </div>
+            </div>
+            {% endif %}
 
+            <div class="card-body">
+                <h5 class="card-title">{{ producto.name }}</h5>
+                <p class="card-text">{{ producto.description }}</p>
+                <p class="card-price">$ {{ producto.price }}</p>
             </div>
 
         </div>
-
         {% endfor %}
 
     </div>
-
 </section>
 
 
-
-<!-- =========================================
-MODAL PARA VER IMÁGENES
-========================================= -->
-
+<!-- MODAL -->
 <div class="modal fade" id="imageModal" tabindex="-1">
-
     <div class="modal-dialog modal-dialog-centered modal-xl">
-
         <div class="modal-content bg-transparent border-0">
-
-            <button
-                type="button"
-                class="btn-close btn-close-white ms-auto me-2 mt-2"
-                data-bs-dismiss="modal">
-            </button>
-
+            <button type="button" class="btn-close btn-close-white ms-auto me-2 mt-2" data-bs-dismiss="modal"></button>
             <div class="modal-body text-center">
-
-                <img
-                    id="modalImage"
-                    class="img-fluid"
-                    style="max-height:90vh;">
-
+                <img id="modalImage" class="img-fluid" style="max-height:90vh; border-radius: 8px;">
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 {% endblock %}
